@@ -53,3 +53,19 @@ cheat engine trick, it is not magic.
   mapped files or image memory
 - first scans on big processes take a few seconds, its python not c++
 - no pointer scans, no disassembly, no debugging - just the memory part
+
+## stuff ive tried it on
+
+- **minecraft (javaw.exe)** - health and hunger are floats (20.0), xp and
+  stack sizes are 4 byte ints, coordinates are doubles. freeze health at
+  20 and youre invincible in singleplayer. heads up: the jvm moves objects
+  when the gc runs so addresses can go stale - just rescan if yours dies.
+  pick the javaw.exe with the big memory footprint, not the launcher
+- **minesweeper / solitaire** - timer, bomb count, score. tiny targets,
+  perfect first scans
+- **notepad++ and random editors** - fun to find your own text buffers
+- honestly any singleplayer game or app on your machine - if you can see
+  the number on screen you can probably find it in memory
+
+multiplayer games are a no - the real values live on the server and
+poking around gets you banned. singleplayer only.
